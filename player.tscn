@@ -1,15 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://c63le43aqp5mg"]
 
 [ext_resource type="Script" uid="uid://k7m1bgepokq" path="res://player.gd" id="1_i3pqv"]
-[ext_resource type="Texture2D" uid="uid://b3wf7bn7t740e" path="res://sprites/link-walk-down1.png" id="2_i3pqv"]
-[ext_resource type="Texture2D" uid="uid://cdm15a7yhptlb" path="res://sprites/link-walk-down2.png" id="3_hqtel"]
-[ext_resource type="Texture2D" uid="uid://buku8umy1ovvl" path="res://sprites/link-up-walk-1.png" id="4_1jxqw"]
-[ext_resource type="Texture2D" uid="uid://bshqlx6qxxtyi" path="res://sprites/link-walk-1.png" id="4_sweqy"]
-[ext_resource type="Texture2D" uid="uid://d0qc2cqwcln1" path="res://sprites/link-walk-2.png" id="5_2hs0m"]
-[ext_resource type="Texture2D" uid="uid://nuhtxwvdecq" path="res://sprites/link-up-walk-2.png" id="5_dw050"]
+[ext_resource type="Texture2D" uid="uid://b3wf7bn7t740e" path="res://sprites/player/link-walk-down1.png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://cdm15a7yhptlb" path="res://sprites/player/link-walk-down2.png" id="3_hqtel"]
+[ext_resource type="Texture2D" uid="uid://buku8umy1ovvl" path="res://sprites/player/link-up-walk-1.png" id="4_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://bshqlx6qxxtyi" path="res://sprites/player/link-walk-1.png" id="4_sweqy"]
+[ext_resource type="Texture2D" uid="uid://d0qc2cqwcln1" path="res://sprites/player/link-walk-2.png" id="5_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://nuhtxwvdecq" path="res://sprites/player/link-up-walk-2.png" id="5_dw050"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sweqy"]
-load_path = "res://.godot/imported/link-idle.png-9ff3c7c81b4a814bd1e4205bfc3b0669.ctex"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_onrkg"]
 animations = [{
@@ -27,7 +26,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"down",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -46,7 +45,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"up",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -57,7 +56,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
@@ -71,8 +70,7 @@ script = ExtResource("1_i3pqv")
 position = Vector2(-3, 157)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_onrkg")
-animation = &"idle"
-frame_progress = 0.33050162
+animation = &"down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 157)
@@ -80,3 +78,5 @@ shape = SubResource("RectangleShape2D_i3pqv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(21, 157)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

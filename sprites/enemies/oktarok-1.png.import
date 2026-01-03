@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdm15a7yhptlb"
-path="res://.godot/imported/link-walk-down2.png-a951ab2277eff759aa05a7e9eceee869.ctex"
+uid="uid://msbkiqja2wen"
+path="res://.godot/imported/oktarok-1.png-ae04de2c402a6073533c920a81eb6c7f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/link-walk-down2.png"
-dest_files=["res://.godot/imported/link-walk-down2.png-a951ab2277eff759aa05a7e9eceee869.ctex"]
+source_file="res://sprites/enemies/oktarok-1.png"
+dest_files=["res://.godot/imported/oktarok-1.png-ae04de2c402a6073533c920a81eb6c7f.ctex"]
 
 [params]
 

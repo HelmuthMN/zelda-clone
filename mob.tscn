@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlgaffa14k0xi"]
+
+[ext_resource type="Texture2D" uid="uid://msbkiqja2wen" path="res://sprites/enemies/oktarok-1.png" id="1_nokgg"]
+[ext_resource type="Script" uid="uid://buk7tqi30h36a" path="res://mob.gd" id="1_p11y5"]
+[ext_resource type="Script" uid="uid://co21vjxgc72r1" path="res://rigid_body_2d.gd" id="2_s5nov"]
+[ext_resource type="Texture2D" uid="uid://bw2gea1r8ds2y" path="res://sprites/enemies/oktarok-2.png" id="2_ubaqv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jfba5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nokgg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ubaqv")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nokgg"]
+size = Vector2(19.166664, 19.833334)
+
+[node name="Mob" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_p11y5")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("2_s5nov")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
+position = Vector2(95.33333, 58)
+sprite_frames = SubResource("SpriteFrames_jfba5")
+animation = &"walk"
+frame_progress = 0.25196728
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="RigidBody2D"]
+position = Vector2(95.33333, 58)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(94.91667, 57.916668)
+shape = SubResource("RectangleShape2D_nokgg")
+
+[connection signal="screen_exited" from="RigidBody2D/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
