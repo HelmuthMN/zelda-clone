@@ -63,7 +63,6 @@ animations = [{
 size = Vector2(47, 48)
 
 [node name="Player" type="Area2D"]
-position = Vector2(299, 27)
 script = ExtResource("1_i3pqv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
